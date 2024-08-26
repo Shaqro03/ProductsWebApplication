@@ -1,0 +1,30 @@
+﻿ @model ProductsWebApplication.Models.ProductViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+<h2>@ViewData["Title"]</h2>
+<hr></hr>
+<form action="Edit" method="post">
+    <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="Id"></input>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name"></input>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description"></input>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="text" class="form-control" asp-for="Price"></input>
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="d-grid">
+        <button type="submit" class="btn btn-success">Update</button>
+    </div>
+</form> 

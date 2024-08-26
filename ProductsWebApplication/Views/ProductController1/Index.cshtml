@@ -1,0 +1,58 @@
+﻿ @model List<ProductsWebApplication.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Product";
+
+}
+
+
+<h2> @ViewData["Title"]</h2>
+<hr ></hr>
+
+
+<form>
+   
+    <button asp-action="Create" asp-controller="ProductController1" class="btn btn-primary">Create Product</button>
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr class="table-active">
+                <th claas="text-center">Id</th>
+                <th claas="text-center">Name</th>
+                <th claas="text-center">Description</th>
+                <th claas="text-center">Price</th>
+                <th claas="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var products in Model)
+                {
+                    <tr>
+                        <td claas="text-center">@products.Id</td>
+                        <td claas="text-center">@products.Name</td>
+                        <td claas="text-center">@products.Description</td>
+                        <td claas="text-center">@products.Price</td>
+                        <td claas="text-center">
+                            <div class="btn-group-sm btn-group-sm">
+                                <button asp-action="Edit" asp-controller="ProductController1" asp-route-id="@products.Id" class="btn-primary">Edit</button>
+                                <button asp-controller="ProductController1" asp-action="Delete" asp-route-id="@products.Id" class="btn-danger">Delete</button>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5">
+                        <div>No </div>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</form> 
